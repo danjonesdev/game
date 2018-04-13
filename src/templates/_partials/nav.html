@@ -1,0 +1,58 @@
+<nav class="ph5  moon-grey  bt  bb">
+  <div class="flex  pv4">
+    {% set typography = [
+      {
+        title: 'Font Size',
+        link: '/typography/font-size'
+      },
+      {
+        title: 'Measure',
+        link: '/typography/measure'
+      }
+    ] %}
+
+    <div class="col-6">
+      <h2 class="t7  fw7  lh-title  almost-black  mb2">Typography</h2>
+
+      {% for page in typography %}
+        <div class="lh-copy">
+          <a class="t7  link  blue" href="{{page.link}}">{{page.title}}</a>
+        </div>
+      {% endfor %}
+    </div>
+
+    {% set theme = [
+      {
+        title: 'Colour',
+        link: '/theme/color'
+      }
+    ] %}
+
+    <div class="col-6">
+      <h2 class="t7  fw7  lh-title  almost-black  mb2">Theme</h2>
+
+      {% for page in theme %}
+        <div class="lh-copy">
+          <a class="t7  link  blue" href="{{page.link}}">{{page.title}}</a>
+        </div>
+      {% endfor %}
+    </div>
+
+    {% set functions = [
+      {
+        title: 'LazyLoad',
+        link: '/functions/lazy-load'
+      }
+    ] %}
+
+    <div class="col-6">
+      <h2 class="t7  fw7  lh-title  almost-black  mb2">Functions</h2>
+
+      {% for page in functions %}
+        <div class="lh-copy">
+          <a class="t7  link  blue" href="{{page.link}}">{{page.title}}</a>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</nav>
