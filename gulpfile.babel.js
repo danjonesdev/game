@@ -79,7 +79,7 @@ gulp.task('eslint', () => {
 
 // Styles
 
-gulp.task('styles', ['stylelint'], () => {
+gulp.task('styles', () => {
   return gulp
     .src(pkg.paths.src.css + '**/*.scss')
     .pipe(plumber({ errorHandler: onError }))

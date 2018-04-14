@@ -1,16 +1,10 @@
-const Global = {
-  elem: document.querySelector('#js-tabs'),
-  item: document.querySelectorAll('[data-tab-item]'),
-  btn: document.querySelectorAll('[data-tab-target]'),
+const Players = {
   p1: {
     name: null,
     hp: null,
     mp: null,
-    type: null,
-    weapons: {
-      weapon1: null,
-      weapon2: null
-    },
+    class: null,
+    weapon: null,
     armour: {
       head: null,
       body: null,
@@ -26,11 +20,8 @@ const Global = {
     name: null,
     hp: null,
     mp: null,
-    type: null,
-    weapons: {
-      weapon1: null,
-      weapon2: null
-    },
+    class: null,
+    weapon: null,
     armour: {
       head: null,
       body: null,
@@ -44,8 +35,8 @@ const Global = {
   },
 
   init() {
-    // this.render();
+
   }
 };
 
-export default Global;
+export default Players;

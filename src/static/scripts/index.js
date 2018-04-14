@@ -1,10 +1,14 @@
+/* eslint-disable import/no-named-as-default, import/no-named-as-default-member */
+
 // import Fetch from './containers/Fetch';
-import Global from './modules/Global';
+import hudControls from './modules/hudControls';
+import hudState from './modules/hudState';
+import Players from './modules/Players';
 
 class App {
   constructor() {
     this.modules = [
-      UI, Global
+      Players, hudControls, hudState
     ];
 
     document.documentElement.className = 'js';
