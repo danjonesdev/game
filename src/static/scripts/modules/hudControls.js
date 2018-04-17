@@ -10,23 +10,25 @@ const hudControls = {
   },
 
   hudEvt(elem) {
-    const item = JSON.parse(elem.getAttribute('data-hud-evt'));
-    console.log(item.node);
+    // checks if current elem disabled
+    if (hudState.disabledEvts.includes(elem)) {
+      console.log('disabled');
+      return;
+    }
 
+    const item = JSON.parse(elem.getAttribute('data-hud-evt'));
     const node = document.querySelector(`[data-hud-node="${item.node}"]`);
     const attrType = item.attrType;
     const val = item.val;
     const target = document.querySelector(`[data-hud-node="${item.target}"]`);
 
     async function go() {
-      // TODO: disable current node
-
       // hide curent node
-      await hudState.hide(node);
+      await hudState.hide(elem, node);
       // set val
       Players.p1[attrType] = val;
       // show target node
-      await hudState.show(target);
+      await hudState.show(elem, target);
       // TODO: re-enable current node
     }
     go();

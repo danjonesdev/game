@@ -1,26 +1,30 @@
 const hudState = {
   wait: delay => new Promise(resolve => setTimeout(resolve, delay)),
-  disabledEvts: {},
+  disabledEvts: [],
 
   init() {
     // this.render();
   },
 
-  hide(elem) {
+  hide(elem, node) {
     const hideUI = async () => {
-      // elem.classList.remove('is-invisible');
-      // elem.classList.remove('fadeIn');
-      elem.classList.add('fadeOut');
+      hudState.disabledEvts.push(elem);
+      node.classList.add('fadeOut');
     };
     hideUI();
   },
 
-  show(elem) {
+  show(elem, target) {
     const showUI = async () => {
       await hudState.wait(300);
-      elem.classList.remove('is-invisible');
-      elem.classList.remove('fadeOut');
-      elem.classList.add('fadeIn');
+      target.classList.remove('is-invisible');
+      target.classList.remove('fadeOut');
+      target.classList.add('fadeIn');
+      const index = hudState.disabledEvts.indexOf(elem);
+      if (index !== -1) {
+        console.log('remove');
+        hudState.disabledEvts.splice(index, 1);
+      }
     };
     showUI();
   }
