@@ -3,30 +3,37 @@ import hudState from './hudState';
 import Players from './Players';
 
 const hudControls = {
-  classControl: document.querySelectorAll('[data-player-class-control]'),
+  hudPlayerConfig: document.querySelectorAll('[data-hud-type="player-config"]'),
 
   init() {
     this.render();
   },
 
-  classPick(elem) {
-    async function printAll() {
-      const classPicker = document.querySelector('[data-hud="class-picker"]');
-      const weaponPicker = document.querySelector('[data-hud="weapon-picker"]');
-      const classVal = elem.getAttribute('data-player-class-control');
-      await hudState.hide(classPicker);
-      Players.p1.class = classVal;
-      await hudState.show(weaponPicker);
-      console.log(Players.p1.class);
+  hudEvt(elem) {
+    const item = JSON.parse(elem.getAttribute('data-hud-evt'));
+
+    const node = document.querySelector(`[data-hud-node="${item.node}"]`);
+    const attrType = item.attrType;
+    const val = item.val;
+    const target = document.querySelector(`[data-hud-node="${item.target}"]`);
+
+    async function go() {
+      // TODO: disable current node
+
+      // hide curent node
+      await hudState.hide(node);
+      // set val
+      Players.p1[attrType] = val;
+      // show target node
+      await hudState.show(target);
     }
-    printAll();
+    go();
   },
 
   render() {
-    // Hide class picker > Set class > Show weapon picker
-    for (let i = 0; i < this.classControl.length; i += 1) {
-      this.classControl[i].addEventListener('click', () => {
-        hudControls.classPick(this.classControl[i]);
+    for (let i = 0; i < this.hudPlayerConfig.length; i += 1) {
+      this.hudPlayerConfig[i].addEventListener('click', () => {
+        hudControls.hudEvt(this.hudPlayerConfig[i]);
       }, false);
     }
   }

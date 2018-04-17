@@ -25,6 +25,7 @@
   },
   "dependencies": {
     "moveto": "^1.7.1",
+    "npm": "^5.8.0",
     "prismjs": "^1.13.0",
     "webfontloader": "^1.6.28"
   },

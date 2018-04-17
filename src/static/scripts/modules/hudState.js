@@ -6,22 +6,22 @@ const hudState = {
   },
 
   hide(elem) {
-    const hideMoveUI = async () => {
-      elem.classList.remove('is-invisible');
-      elem.classList.remove('fadeIn');
+    const hideUI = async () => {
+      // elem.classList.remove('is-invisible');
+      // elem.classList.remove('fadeIn');
       elem.classList.add('fadeOut');
     };
-    hideMoveUI();
+    hideUI();
   },
 
   show(elem) {
-    const hideMoveUI = async () => {
+    const showUI = async () => {
       await hudState.wait(300);
       elem.classList.remove('is-invisible');
       elem.classList.remove('fadeOut');
       elem.classList.add('fadeIn');
     };
-    hideMoveUI();
+    showUI();
   }
 };
 

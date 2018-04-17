@@ -7,14 +7,14 @@
 
 {% block content %}
 
-<div data-hud="class-picker">
-  <div data-player-class-control="mage">
+<div class="is-visible" data-hud-type="player-config" data-hud-node="class-select">
+  <div data-hud-evt='{ "node":"class-select", "attrType":"class", "val":"mage", "target":"weapon-select" }'>
     mage
   </div>
 </div>
 
-<div class="is-invisible" data-hud="weapon-picker">
-  <div data-player-weapon-control="staff">
+<div class="is-invisible" data-hud-type="player-config" data-hud-node="weapon-select">
+  <div data-hud-evt='{ "node":"weapon-select", "attrType":"weapon", "val":"mage", "target":"head-select" }'>
     staff
   </div>
 </div>
