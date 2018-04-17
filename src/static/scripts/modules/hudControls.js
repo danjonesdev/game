@@ -3,7 +3,7 @@ import hudState from './hudState';
 import Players from './Players';
 
 const hudControls = {
-  hudPlayerConfig: document.querySelectorAll('[data-hud-type="player-config"]'),
+  hudEvtElem: document.querySelectorAll('[data-hud-evt]'),
 
   init() {
     this.render();
@@ -11,6 +11,7 @@ const hudControls = {
 
   hudEvt(elem) {
     const item = JSON.parse(elem.getAttribute('data-hud-evt'));
+    console.log(item.node);
 
     const node = document.querySelector(`[data-hud-node="${item.node}"]`);
     const attrType = item.attrType;
@@ -26,14 +27,15 @@ const hudControls = {
       Players.p1[attrType] = val;
       // show target node
       await hudState.show(target);
+      // TODO: re-enable current node
     }
     go();
   },
 
   render() {
-    for (let i = 0; i < this.hudPlayerConfig.length; i += 1) {
-      this.hudPlayerConfig[i].addEventListener('click', () => {
-        hudControls.hudEvt(this.hudPlayerConfig[i]);
+    for (let i = 0; i < this.hudEvtElem.length; i += 1) {
+      this.hudEvtElem[i].addEventListener('click', () => {
+        hudControls.hudEvt(this.hudEvtElem[i]);
       }, false);
     }
   }

@@ -1,5 +1,6 @@
 const hudState = {
   wait: delay => new Promise(resolve => setTimeout(resolve, delay)),
+  disabledEvts: {},
 
   init() {
     // this.render();
