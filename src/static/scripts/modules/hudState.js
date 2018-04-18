@@ -6,23 +6,27 @@ const hudState = {
     // this.render();
   },
 
-  hide(elem, node) {
+  hide(node) {
     const hideUI = async () => {
-      hudState.disabledEvts.push(elem);
+      // disable node
+      hudState.disabledEvts.push(node);
+      // hide node
       node.classList.add('fadeOut');
     };
     hideUI();
   },
 
-  show(elem, target) {
+  show(disabledNode, target) {
     const showUI = async () => {
       await hudState.wait(300);
+      // show node
       target.classList.remove('is-invisible');
       target.classList.remove('fadeOut');
       target.classList.add('fadeIn');
-      const index = hudState.disabledEvts.indexOf(elem);
+
+      // re-enable node
+      const index = hudState.disabledEvts.indexOf(disabledNode);
       if (index !== -1) {
-        console.log('remove');
         hudState.disabledEvts.splice(index, 1);
       }
     };
