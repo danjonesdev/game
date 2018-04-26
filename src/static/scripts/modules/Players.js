@@ -4,34 +4,17 @@ const Players = {
     hp: null,
     mp: null,
     class: null,
-    weapon: null,
-    armour: {
-      head: null,
-      body: null,
-      legs: null
-    },
-    abilities: {
-      ability1: null,
-      ability2: null,
-      ability3: null
-    }
+    curse1: null,
+    curse2: null,
+    curse3: null
   },
   p2: {
     name: null,
     hp: null,
     mp: null,
     class: null,
-    weapon: null,
-    armour: {
-      head: null,
-      body: null,
-      legs: null
-    },
-    abilities: {
-      ability1: null,
-      ability2: null,
-      ability3: null
-    }
+    curse1: null,
+    curse2: null
   },
 
   init() {

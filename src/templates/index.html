@@ -7,25 +7,49 @@
 
 {% block content %}
 
-<div class="is-visible" data-hud-type="player-config" data-hud-node="class-select">
-  <div data-hud-evt='{ "node":"class-select", "attrType":"class", "val":"mage", "target":"weapon-select" }'>
-    mage
+<!-- Class -->
+<div class="is-visible" data-hud-node="class">
+  <div data-player-config-evt='{ "node":"class", "val":"class 1", "target":"curse1" }'>
+    class 1
+  </div>
+  <div data-player-config-evt='{ "node":"class", "val":"class 2", "target":"curse1" }'>
+    class 2
   </div>
 </div>
 
-<div class="is-invisible" data-hud-type="player-config" data-hud-node="weapon-select">
-  <div data-hud-evt='{ "node":"weapon-select", "attrType":"weapon", "val":"mage", "target":"head-select" }'>
-    staff
+<!-- Curse 1 -->
+<div class="is-invisible" data-hud-node="curse1">
+  <div data-player-config-evt='{ "node":"curse1", "val":"1", "target":"curse2" }'>
+    1
+  </div>
+  <div data-player-config-evt='{ "node":"curse1", "val":"1", "target":"curse2" }'>
+    1
   </div>
 </div>
 
-<div class="flex  flex-row  flex-wrap">
-  <div class="col-12  bg-blue">
-a
+<!-- Curse 2 -->
+<div class="is-invisible" data-hud-node="curse2">
+  <div data-player-config-evt='{ "node":"curse2", "val":"2", "target":"curse3" }'>
+    2
   </div>
-  <div class="col-12  bg-red">
-a
+  <div data-player-config-evt='{ "node":"curse2", "val":"2", "target":"curse3" }'>
+    2
   </div>
+</div>
+
+<!-- Curse 3 -->
+<div class="is-invisible" data-hud-node="curse3">
+  <div data-player-config-evt='{ "node":"curse3", "val":"3", "target":"attr-ui" }'>
+    3
+  </div>
+  <div data-player-config-evt='{ "node":"curse3", "val":"3", "target":"attr-ui" }'>
+    3
+  </div>
+</div>
+
+<!-- Curse 3 -->
+<div class="is-invisible" data-hud-node="attr-ui">
+
 </div>
 
 {% endblock %}
